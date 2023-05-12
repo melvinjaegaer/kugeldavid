@@ -7,7 +7,7 @@ public class Kugel{
     private double radius;
     private boolean istAktiv;
     private double vX, vZ;
-    public double bewegeX,bewegeZ;
+    public double bewegeX,bewegeZ;00
 
     public Kugel(){kugel=new GLKugel(-500+Math.random()*1000,20,-500+Math.random()*1000,10);
     bewegeX= kugel.verschiebe(Math.random()*1,0,0);;
