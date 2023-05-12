@@ -15,7 +15,7 @@ public class Kugel{
     public void bewege(){
 
         kugel.verschiebe(0,0,Math.random()*1);
-oo
+
 
 
         }
