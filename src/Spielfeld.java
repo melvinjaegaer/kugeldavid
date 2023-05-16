@@ -19,10 +19,37 @@ public class Spielfeld{
         wand3.setzeTextur("src/img/Marmor.jpg");
         wand4.setzeTextur("src/img/Marmor.jpg");
     }
-    public double GibX () {return wand1.gibX();
+
+
+
+    public double GibX1 () {return wand1.gibX();
 
     }
-    public double GibY () {return wand1.gibY();}
-    public double GibZ () {return wand1.gibZ();}
 
-}
+    public double GibZ1 () {return wand1.gibZ();}
+
+
+    public double GibX2 () {return wand2.gibX();
+
+    }
+
+    public double GibZ2 () {return wand2.gibZ();}
+
+
+public double GibX3 () {return wand3.gibX();
+
+        }
+
+public double GibZ3 () {return wand3.gibZ();}
+
+
+        public double GibX4 () {return wand4.gibX();
+
+
+        }
+
+public double GibZ4 () {return wand4.gibZ();}}
+
+
+
+
