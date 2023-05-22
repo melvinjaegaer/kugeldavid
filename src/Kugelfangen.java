@@ -24,33 +24,39 @@ public class Kugelfangen {
         kugel = new Kugel [100];
         for (int i=0;i<kugel.length;i++){
             kugel[i]=new Kugel(spielfeld);
+
         }
 
         fuehreAus();
+
     }
 
 
 
     public void fuehreAus() { while (!tastatur.esc()) {
 
-        if (tastatur.unten()&& dieBox.GibY() > -1000) {
+        if (tastatur.unten()&& dieBox.GibZ() > 1000) {
             dieBox.bewegeRunter();}
-        if (tastatur.rechts() && dieBox.GibX() < 1000) {
+        if (tastatur.rechts() && dieBox.GibX() > 1000) {
             dieBox.bewegeRechts();}
 
-        if (tastatur.oben() && dieBox.GibY() < 1000) {
+        if (tastatur.oben() && dieBox.GibZ() < -1000) {
             dieBox.bewegeHoch();}
 
-        if (tastatur.links() && dieBox.GibX() > -1000) {
+        if (tastatur.links() && dieBox.GibX() < -1000 ) {
             dieBox.bewegeLinks();}
         for (int i=0;i<kugel.length;i++){
             kugel[i].bewegen(spielfeld);
-        }
+
+        if(kugel[i].getroffen()){kugel.}}
+
 
 
         Sys.warte();
 
 
     }
-}}
+
+}
+}
 

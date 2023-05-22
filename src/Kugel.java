@@ -10,44 +10,50 @@ public class Kugel{
     public double bewegeX,bewegeZ;
      public Spielfeld spielfeld,wand1,wand2,wand3,wand4;
     public Kugel(Spielfeld spielfeld) {
-        kugel = new GLKugel(-500 + Math.random() * 1000, 20, -500 + Math.random() * 1000, 10);
-
+        kugel = new GLKugel(-500 + Math.random() * 1000, 25, -500 + Math.random() * 1000, 10);
+        bewegeX = Math.random() *2-1;
+        bewegeZ=Math.random()*2-1;
 
     }
     public void bewegen(Spielfeld spielfeld) {
-        bewegeX = Math.random() * 1;
-        bewegeZ=Math.random()*1;
-        if(kugel.gibZ()== wand1.GibZ1()){
+
+
+        if(kugel.gibZ()>= spielfeld.GibZ1()-5){
         bewegeZ= bewegeZ * -1;
-        }
-        if(kugel.gibX()== wand1.GibX1()){
             bewegeX= bewegeX * -1;
-        }
-        if(kugel.gibZ()== wand2.GibZ2()){
-            bewegeZ= bewegeZ * -1;
-        }
-        if(kugel.gibX()== wand2.GibX2()){
-            bewegeX= bewegeX * -1;
-        }
-        if(kugel.gibZ()== wand3.GibZ3()){
-            bewegeZ= bewegeZ * -1;
-        }
-        if(kugel.gibX()== wand3.GibX3()){
-            bewegeX= bewegeX * -1;
-        }
-        if(kugel.gibZ()== wand4.GibZ4()){
-            bewegeZ= bewegeZ * -1;
-        }
-        if(kugel.gibX()== wand4.GibX4()){
-            bewegeX= bewegeX * -1;
+
         }
 
 
-         kugel.verschiebe(bewegeX, 0, bewegeZ);
+        if(kugel.gibZ()<= spielfeld.GibZ2()){
+            bewegeZ= bewegeZ * -1;
+            bewegeX= bewegeX * -1;
+
+        }
+
+        if(kugel.gibX()>= spielfeld.GibX3()){
+            bewegeZ= bewegeZ * -1;
+            bewegeX= bewegeX * -1;
+        }
+
+        if(kugel.gibX()<= spielfeld.GibX4()){
+            bewegeZ= bewegeZ * -1; bewegeX= bewegeX * -1;
+        }
+
+
+
+
+        kugel.verschiebe(bewegeX, 0, bewegeZ);
+
 
     }
 
+    public boolean getroffen(){
+        double distance = Math.sqrt(Math.pow( kugel.gibX()- dieBox.GibX(), 2 )  + Math.pow( kugel.gibZ()- dieBox.GibZ(), 2 ));
 
+        if (distance < 200) return true;
+        else return false;
+    }
 
 
 

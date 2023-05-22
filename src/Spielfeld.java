@@ -1,6 +1,6 @@
 import GLOOP.*;
 public class Spielfeld{
-    private GLQuader untergrund,wand1,wand2,wand3,wand4;
+    public GLQuader untergrund,wand1,wand2,wand3,wand4;
     private double breite, tiefe;
 
     public Spielfeld(double pBreite, double pTiefe){
@@ -18,6 +18,12 @@ public class Spielfeld{
         wand2.setzeTextur("src/img/Marmor.jpg");
         wand3.setzeTextur("src/img/Marmor.jpg");
         wand4.setzeTextur("src/img/Marmor.jpg");
+        wand1.setzeFarbe(1,0,0);
+        wand2.setzeFarbe(0,1,0);
+        wand3.setzeFarbe(3,0,1);
+        wand4.setzeFarbe(0,0,1);
+
+
     }
 
 
