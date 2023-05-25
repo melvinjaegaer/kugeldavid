@@ -46,9 +46,11 @@ public class Kugelfangen {
         if (tastatur.links() && dieBox.GibX() < -1000 ) {
             dieBox.bewegeLinks();}
         for (int i=0;i<kugel.length;i++){
-            kugel[i].bewegen(spielfeld);
+            kugel[i].bewegen(spielfeld);}
 
-        if(kugel[i].getroffen()){kugel.}}
+        for(int i = 0; i < kugel.length; i++){
+            kugel[i].kugelweg();
+        }
 
 
 

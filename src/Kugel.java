@@ -1,4 +1,7 @@
 import GLOOP.*;
+
+import javax.swing.*;
+
 public class Kugel{
     private GLKugel kugel;
     private Box dieBox;
@@ -48,12 +51,24 @@ public class Kugel{
 
     }
 
-    public boolean getroffen(){
-        double distance = Math.sqrt(Math.pow( kugel.gibX()- dieBox.GibX(), 2 )  + Math.pow( kugel.gibZ()- dieBox.GibZ(), 2 ));
+    public boolean getroffen() {
+        double distance = Math.sqrt(Math.pow(kugel.gibX() - dieBox.GibX(), 2) + Math.pow(kugel.gibZ() - dieBox.GibZ(), 2));
 
-        if (distance < 200) return true;
-        else return false;
-    }
+        if (distance < 10) {
+            return true;
+        }else {
+            return false;}
+//,...,mghghghfhgfdghdfhd
+        }
+    public void kugelweg(){
+        if(this.getroffen()) {
+            kugel.setzePosition(100000, 101010, 10100);}
+
+
+        }
+
+
+
 
 
 
