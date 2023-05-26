@@ -5,18 +5,19 @@ import javax.swing.*;
 public class Kugel{
     private GLKugel kugel;
     private Box dieBox;
-    private double feld;
+    private Spielfeld feld;
      float feldmaﬂ;
     private double radius;
     private boolean istAktiv;
     private double vX, vZ;
     public double bewegeX,bewegeZ;
      public Spielfeld spielfeld,wand1,wand2,wand3,wand4;
-    public Kugel(Spielfeld spielfeld) {
+    public Kugel(Spielfeld pSpielfeld,Box pBox) {
         kugel = new GLKugel(-500 + Math.random() * 1000, 25, -500 + Math.random() * 1000, 10);
         bewegeX = Math.random() *2-1;
         bewegeZ=Math.random()*2-1;
-
+        feld=pSpielfeld;
+        dieBox=pBox;
     }
     public void bewegen(Spielfeld spielfeld) {
 
@@ -54,14 +55,14 @@ public class Kugel{
     public boolean getroffen() {
         double distance = Math.sqrt(Math.pow(kugel.gibX() - dieBox.GibX(), 2) + Math.pow(kugel.gibZ() - dieBox.GibZ(), 2));
 
-        if (distance < 10) {
+        if (distance < 100) {
             return true;
         }else {
             return false;}
-//,...,mghghghfhgfdghdfhd
+
         }
     public void kugelweg(){
-        if(this.getroffen()) {
+        if(getroffen()) {
             kugel.setzePosition(100000, 101010, 10100);}
 
 

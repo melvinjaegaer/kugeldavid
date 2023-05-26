@@ -7,9 +7,9 @@ public class Kugelfangen {
 
     private Box dieBox;
     private Kugel kugel[];
-    public Spielfeld spielfeld;
+    public Spielfeld feld;
 
-    public Kugelfangen() {
+    public Kugelfangen( ) {
         kamera = new GLEntwicklerkamera();
         kamera.setzePosition(0, 500, 800);
 
@@ -17,13 +17,13 @@ public class Kugelfangen {
         himmel = new GLHimmel("src/img/Sterne.jpg");
         tastatur = new GLTastatur();
 
-         spielfeld = new Spielfeld(1000, 1000);
-        dieBox=new Box();
+         feld = new Spielfeld(3000, 3000);
+         dieBox=new Box();
 
 
         kugel = new Kugel [100];
         for (int i=0;i<kugel.length;i++){
-            kugel[i]=new Kugel(spielfeld);
+            kugel[i]=new Kugel(feld,dieBox);
 
         }
 
@@ -35,18 +35,21 @@ public class Kugelfangen {
 
     public void fuehreAus() { while (!tastatur.esc()) {
 
-        if (tastatur.unten()&& dieBox.GibZ() > 1000) {
+        if (tastatur.unten()) {
             dieBox.bewegeRunter();}
-        if (tastatur.rechts() && dieBox.GibX() > 1000) {
+        if (tastatur.rechts() ) {
             dieBox.bewegeRechts();}
 
-        if (tastatur.oben() && dieBox.GibZ() < -1000) {
+        if (tastatur.oben()) {
             dieBox.bewegeHoch();}
 
-        if (tastatur.links() && dieBox.GibX() < -1000 ) {
+        if (tastatur.links()  ) {
             dieBox.bewegeLinks();}
+
+
+
         for (int i=0;i<kugel.length;i++){
-            kugel[i].bewegen(spielfeld);}
+            kugel[i].bewegen(feld);}
 
         for(int i = 0; i < kugel.length; i++){
             kugel[i].kugelweg();
